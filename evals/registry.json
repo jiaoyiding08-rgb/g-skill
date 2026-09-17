@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "cases": 72,
+  "dev": 48,
+  "holdout_candidate": 24,
+  "sealed_holdout": 0,
+  "real_behavioral_cases": 0,
+  "all_cases_authored_and_visible": true,
+  "warning": "合成候选集；不能用于宣称真实用户收益或独立盲测通过。"
+}

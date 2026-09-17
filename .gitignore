@@ -1,0 +1,14 @@
+.venv/
+.local/
+__pycache__/
+*.pyc
+*.sqlite*
+.env
+node_modules/
+.promptfoo/
+.private-sources/
+reports/live/
+reports/
+*.db
+*.log
+.DS_Store

@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "skill": "g-ship",
+  "run_id": "run_example_ship",
+  "decision": "ONE_FIX_THEN_SHIP",
+  "summary": "草稿的服务范围还不清楚，先只修这一项，再检查后发给已同意参与访谈的人。",
+  "next_action": {
+    "action_id": "act_example_fix",
+    "action": "补齐服务范围并重新检查",
+    "actor": "user",
+    "timebox_min": 25,
+    "blocked_by": [],
+    "stop_when": "草稿中列明首日任务、服务范围和仍待核实的事项。",
+    "side_effect": "local_write",
+    "requires_confirmation": true
+  },
+  "completion_contract": null,
+  "evidence_request": [],
+  "questions": [],
+  "handoff": null,
+  "data_writes": [],
+  "writes_applied": false,
+  "capability_mode": "prompt_only",
+  "details": {
+    "artifact_ref": "example://synthetic-offer-draft",
+    "artifact_sha256": null,
+    "hard_gate": "pass",
+    "core_gate": "fail",
+    "polish_only": false,
+    "repair": "补上服务包含什么、不包含什么。",
+    "delivery_executed": false
+  },
+  "uncertainties": []
+}

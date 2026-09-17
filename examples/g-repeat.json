@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1.0",
+  "skill": "g-repeat",
+  "run_id": "run_example_repeat",
+  "decision": "PATTERN",
+  "summary": "两个独立服务说明任务有相同的检查步骤，可以继续验证一份清单候选。",
+  "next_action": null,
+  "completion_contract": null,
+  "evidence_request": [],
+  "questions": [],
+  "handoff": null,
+  "data_writes": [],
+  "writes_applied": false,
+  "capability_mode": "prompt_only",
+  "details": {
+    "cluster": {
+      "cluster_id": "cluster_example",
+      "task_statement": "为不同服务准备可供访谈的说明草稿",
+      "episode_ids": [
+        "episode_example_a",
+        "episode_example_b"
+      ],
+      "run_ids": [
+        "run_example_a",
+        "run_example_b"
+      ],
+      "maturity": "R1",
+      "stable_steps": [
+        "写出首日活动",
+        "标明服务边界",
+        "检查是否容易理解"
+      ],
+      "variants": [
+        "访谈对象的背景不同"
+      ],
+      "near_misses": [
+        "同一草稿改三次仍算一次任务"
+      ],
+      "next_validation": "第三个独立任务试用清单并记录遗漏。",
+      "automation_authorized": false
+    },
+    "independent_count": 2,
+    "recommendation": "先做清单候选，不启动自动发布。",
+    "provenance_note": "此处是说明机制的合成样例，未引用真实用户统计。"
+  },
+  "uncertainties": []
+}

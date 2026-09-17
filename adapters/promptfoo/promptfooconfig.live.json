@@ -1,0 +1,42 @@
+{
+  "description": "G Skill alpha: automated format/decision checks; semantic review required",
+  "prompts": [
+    "{{input_json}}"
+  ],
+  "providers": [
+    {
+      "id": "file://provider.py"
+    }
+  ],
+  "defaultTest": {
+    "assert": [
+      {
+        "type": "python",
+        "value": "file://assertions.py"
+      }
+    ]
+  },
+  "tests": [
+    {
+      "description": "g-ground-01",
+      "vars": {
+        "case_id": "g-ground-01",
+        "input_json": "{\"skill\": \"g-ground\", \"input\": \"我想开执行社群，今晚只有25分钟，头像、课程和介绍都没完成。\", \"context\": {\"capability_mode\": \"prompt_only\", \"tool_access\": false, \"synthetic_case\": true}}"
+      }
+    },
+    {
+      "description": "g-ground-02",
+      "vars": {
+        "case_id": "g-ground-02",
+        "input_json": "{\"skill\": \"g-ground\", \"input\": \"我准备在平台卖社群，但不清楚类目能否上架。\", \"context\": {\"capability_mode\": \"prompt_only\", \"tool_access\": false, \"synthetic_case\": true}}"
+      }
+    },
+    {
+      "description": "g-ground-03",
+      "vars": {
+        "case_id": "g-ground-03",
+        "input_json": "{\"skill\": \"g-ground\", \"input\": \"今晚做一个含支付、会员、排行榜和AI助手的网站，两小时做完。\", \"context\": {\"capability_mode\": \"prompt_only\", \"tool_access\": false, \"synthetic_case\": true}}"
+      }
+    }
+  ]
+}

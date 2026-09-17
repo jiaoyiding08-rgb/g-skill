@@ -1,0 +1,158 @@
+[
+  {
+    "id": "g-ship-01",
+    "skill": "g-ship",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "这份公开短文内容核实了，没有私人信息，只剩标点间距不统一。完整文稿已提供。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-02",
+    "skill": "g-ship",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "脚本能运行，仓库还带真实API密钥。现在要公开。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-03",
+    "skill": "g-ship",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "给客户的方案交付内容齐了，只有一处交付时间遗漏。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-04",
+    "skill": "g-ship",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "15分钟到时支付还是报错，但你说修完必须发布。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-05",
+    "skill": "g-ship",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "我说网站差不多好了，但没有链接、截图、文件或测试记录。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-06",
+    "skill": "g-ship",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "用户只让我审核视频，没让我代发，视频内容已经齐备并核查。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": true
+  },
+  {
+    "id": "g-ship-07",
+    "skill": "g-ship",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "产品页有七处影响理解的缺失，价格和交付方式也不清。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-08",
+    "skill": "g-ship",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "旧版本已审核，但提交前替换了关键数据和客户报价。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-09",
+    "skill": "g-ship",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "我想公开课程Beta原文件，文件写着只供本地试用且不进入公开安装包。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-10",
+    "skill": "g-ship",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "第三方工具说发送成功，但没有服务端消息ID或接收方记录。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-11",
+    "skill": "g-ship",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "一个版本已经明确无用户价值，我们决定停止这条尝试。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-ship-12",
+    "skill": "g-ship",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "一处付款金额错误已改，新的测试订单状态也提供了，其余条件均通过。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  }
+]

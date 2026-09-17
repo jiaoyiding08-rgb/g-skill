@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1.0",
+  "skill": "g-ground",
+  "run_id": "run_example_ground",
+  "decision": "ACT_NOW",
+  "summary": "先做一份能给人阅读的本地说明草稿，暂不公开收款。",
+  "next_action": {
+    "action_id": "act_example",
+    "action": "创建一份本地服务说明草稿",
+    "actor": "user",
+    "timebox_min": 25,
+    "blocked_by": [],
+    "stop_when": "草稿中列明首日任务、服务范围和仍待核实的事项。",
+    "side_effect": "local_write",
+    "requires_confirmation": true
+  },
+  "completion_contract": {
+    "contract_id": "contract_example",
+    "version": 1,
+    "scope": "仅验证本地草稿文件存在，未发布或收款",
+    "criteria": [
+      {
+        "criterion_id": "file_created",
+        "statement": "指定目录存在本轮登记的草稿文件",
+        "accepted_types": [
+          "file"
+        ],
+        "minimum_level": "E1",
+        "verification": "local_artifact_sha256",
+        "max_age_seconds": 86400
+      }
+    ],
+    "created_at": "2026-09-18T00:00:00+08:00"
+  },
+  "evidence_request": [
+    "生成后的草稿文件"
+  ],
+  "questions": [],
+  "handoff": null,
+  "data_writes": [
+    {
+      "target": "step",
+      "operation": "propose",
+      "description": "建议创建草稿任务；尚未保存。"
+    }
+  ],
+  "writes_applied": false,
+  "capability_mode": "prompt_only",
+  "details": {
+    "blocker": null,
+    "why_this_step": "先让别人理解服务内容，同时避免尚未核实的上架和收款条件。",
+    "deferred_items": [
+      "头像迭代",
+      "自动排行榜"
+    ]
+  },
+  "uncertainties": [
+    "平台类目和收款条件尚未核实。"
+  ]
+}

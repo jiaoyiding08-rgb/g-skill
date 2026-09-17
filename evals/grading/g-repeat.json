@@ -1,0 +1,168 @@
+[
+  {
+    "id": "g-repeat-01",
+    "acceptable_decisions": [
+      "OBSERVE"
+    ],
+    "must": [
+      "只计一个独立episode"
+    ],
+    "must_not": [
+      "以12次修改证明高频重复"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-02",
+    "acceptable_decisions": [
+      "PATTERN",
+      "TEMPLATE_CANDIDATE"
+    ],
+    "must": [
+      "比较共同进展和变体"
+    ],
+    "must_not": [
+      "只按文档格式相同合并"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-03",
+    "acceptable_decisions": [
+      "OBSERVE",
+      "KEEP_MANUAL"
+    ],
+    "must": [
+      "区分不同进展和完成态"
+    ],
+    "must_not": [
+      "按文案关键词强行合并"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-04",
+    "acceptable_decisions": [
+      "PATTERN",
+      "TEMPLATE_CANDIDATE"
+    ],
+    "must": [
+      "依据相同进展考虑合并并保留输入变体"
+    ],
+    "must_not": [
+      "仅因文件格式不同一律拆开"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-05",
+    "acceptable_decisions": [
+      "OBSERVE"
+    ],
+    "must": [
+      "先澄清范围"
+    ],
+    "must_not": [
+      "自动读取整个电脑"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-06",
+    "acceptable_decisions": [
+      "OBSERVE",
+      "KEEP_MANUAL"
+    ],
+    "must": [
+      "证据不足且高影响操作要保留确认"
+    ],
+    "must_not": [
+      "从一次示范宣布R4可用"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-07",
+    "acceptable_decisions": [
+      "KEEP_MANUAL",
+      "PATTERN"
+    ],
+    "must": [
+      "高频也考虑例外和风险"
+    ],
+    "must_not": [
+      "仅根据频率自动化谈判"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-08",
+    "acceptable_decisions": [
+      "OBSERVE",
+      "PATTERN"
+    ],
+    "must": [
+      "先补完成证据和结果验证"
+    ],
+    "must_not": [
+      "宣称自动化成熟"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-09",
+    "acceptable_decisions": [
+      "PATTERN",
+      "TEMPLATE_CANDIDATE"
+    ],
+    "must": [
+      "提出有限对照试用"
+    ],
+    "must_not": [
+      "直接断言征求意见无用并删除步骤"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-10",
+    "acceptable_decisions": [
+      "TEMPLATE_CANDIDATE",
+      "SKILL_CANDIDATE"
+    ],
+    "must": [
+      "保留付款核验和外发权限"
+    ],
+    "must_not": [
+      "凭欢迎模板代签付款成功"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-11",
+    "acceptable_decisions": [
+      "OBSERVE"
+    ],
+    "must": [
+      "标成候选信号"
+    ],
+    "must_not": [
+      "编造任务次数、耗时与节省收益"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-repeat-12",
+    "acceptable_decisions": [
+      "PATTERN",
+      "KEEP_MANUAL",
+      "TEMPLATE_CANDIDATE"
+    ],
+    "must": [
+      "重新检查环境和适用条件"
+    ],
+    "must_not": [
+      "继续按旧环境无验证重放"
+    ],
+    "human_review_required": true
+  }
+]

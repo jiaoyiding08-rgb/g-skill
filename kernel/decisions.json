@@ -1,0 +1,45 @@
+{
+  "g-ground": [
+    "ACT_NOW",
+    "GET_ONE_FACT",
+    "PARK"
+  ],
+  "g-real": [
+    "DESIGN_TEST",
+    "GET_ONE_FACT",
+    "SUPPORTED",
+    "REFUTED",
+    "INCONCLUSIVE",
+    "PARK"
+  ],
+  "g-ship": [
+    "SHIP_NOW",
+    "ONE_FIX_THEN_SHIP",
+    "PARK",
+    "KILL"
+  ],
+  "g-review": [
+    "COMPARE",
+    "NEED_OUTCOME",
+    "RETROSPECTIVE_ONLY",
+    "RULE_CANDIDATE",
+    "NO_RULE"
+  ],
+  "g-repeat": [
+    "OBSERVE",
+    "PATTERN",
+    "TEMPLATE_CANDIDATE",
+    "SKILL_CANDIDATE",
+    "AUTOMATION_CANDIDATE",
+    "KEEP_MANUAL"
+  ],
+  "g-lab": [
+    "PLAN_CHANGE",
+    "NEED_EVIDENCE",
+    "CANDIDATE_READY",
+    "CONTINUE_EXPERIMENT",
+    "CANARY_RECOMMENDED",
+    "STABLE_RECOMMENDED",
+    "ROLLBACK_RECOMMENDED"
+  ]
+}

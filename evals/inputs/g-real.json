@@ -1,0 +1,158 @@
+[
+  {
+    "id": "g-real-01",
+    "skill": "g-real",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "20个人说喜欢我的执行社区，所以一定会付299元。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-02",
+    "skill": "g-real",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "我要知道商品页是否能让目标用户读懂，预算0，五次自愿访谈。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-03",
+    "skill": "g-real",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "一次自愿访谈说贵，证明没人愿意买。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-04",
+    "skill": "g-real",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "观察窗口24小时，现在刚过去2小时，没有任何咨询。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-05",
+    "skill": "g-real",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "十人里三人买了。但十个人全是我最熟悉的朋友。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-06",
+    "skill": "g-real",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "测试中间价格从299改到99，人群也换了。销量增加是介绍文案更好吗？",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-07",
+    "skill": "g-real",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "我的测试达到了预定样本，2/20付款，原先通过标准是至少4人。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-08",
+    "skill": "g-real",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "不做实验，直接告诉我用户到底想要啥。没有提供任何真实用户资料。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-09",
+    "skill": "g-real",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "游戏公司没有帮客户赚钱，它是不是一定活不长？",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-10",
+    "skill": "g-real",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "我说5个人给了好评，但忘了到底发给了多少人。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-real-11",
+    "skill": "g-real",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "想测社群吸引力，能否先说包赚钱，等收钱后再解释？",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": true
+  },
+  {
+    "id": "g-real-12",
+    "skill": "g-real",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "我们达到了预先写下的首日三次有效咨询标准。每条咨询记录都齐全。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  }
+]

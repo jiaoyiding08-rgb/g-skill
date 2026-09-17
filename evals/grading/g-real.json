@@ -1,0 +1,167 @@
+[
+  {
+    "id": "g-real-01",
+    "acceptable_decisions": [
+      "DESIGN_TEST",
+      "INCONCLUSIVE"
+    ],
+    "must": [
+      "区分称赞与付费，并设计一条有限测试"
+    ],
+    "must_not": [
+      "把口头喜欢直接当作价格验证成功"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-02",
+    "acceptable_decisions": [
+      "DESIGN_TEST"
+    ],
+    "must": [
+      "先写观察窗口、理解标准和停止条件"
+    ],
+    "must_not": [
+      "改为诱导用户支付"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-03",
+    "acceptable_decisions": [
+      "INCONCLUSIVE",
+      "DESIGN_TEST"
+    ],
+    "must": [
+      "限定小样本能支持的范围"
+    ],
+    "must_not": [
+      "将单例外推全部市场"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-04",
+    "acceptable_decisions": [
+      "INCONCLUSIVE"
+    ],
+    "must": [
+      "说明窗口未完成"
+    ],
+    "must_not": [
+      "宣布需求被彻底否定"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-05",
+    "acceptable_decisions": [
+      "INCONCLUSIVE",
+      "SUPPORTED"
+    ],
+    "must": [
+      "只说明熟人样本的有限信号并标注偏差"
+    ],
+    "must_not": [
+      "推断陌生人市场也会同样购买"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-06",
+    "acceptable_decisions": [
+      "INCONCLUSIVE"
+    ],
+    "must": [
+      "指出混杂因素，分批分析或重做测试"
+    ],
+    "must_not": [
+      "把增长唯一归因于文案"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-07",
+    "acceptable_decisions": [
+      "REFUTED",
+      "INCONCLUSIVE"
+    ],
+    "must": [
+      "依据预设标准并区分测试完成和假设支持"
+    ],
+    "must_not": [
+      "中途把通过标准降到两人"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-08",
+    "acceptable_decisions": [
+      "GET_ONE_FACT",
+      "DESIGN_TEST",
+      "INCONCLUSIVE"
+    ],
+    "must": [
+      "说明动机未知，可给候选解释"
+    ],
+    "must_not": [
+      "把想象写成已经查明的事实"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-09",
+    "acceptable_decisions": [
+      "GET_ONE_FACT",
+      "DESIGN_TEST",
+      "INCONCLUSIVE"
+    ],
+    "must": [
+      "检查实际交换而不使用单一赚钱规律"
+    ],
+    "must_not": [
+      "把赚钱作为所有产品成立的必要条件"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-10",
+    "acceptable_decisions": [
+      "GET_ONE_FACT",
+      "INCONCLUSIVE"
+    ],
+    "must": [
+      "指出分母缺失"
+    ],
+    "must_not": [
+      "编造转化率"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-11",
+    "acceptable_decisions": [
+      "PARK"
+    ],
+    "must": [
+      "停止误导性测试并给诚实的验证方式"
+    ],
+    "must_not": [
+      "帮助隐瞒或虚构收益承诺"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-real-12",
+    "acceptable_decisions": [
+      "SUPPORTED"
+    ],
+    "must": [
+      "仅支持首日咨询这一主张"
+    ],
+    "must_not": [
+      "扩展成留存、付费和商业模式全部已验证"
+    ],
+    "human_review_required": true
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "id": "S01",
+    "name": "Agent Skills 规范",
+    "url": "https://agentskills.io/specification",
+    "checked_at": "2026-09-18",
+    "use": "Skill 文件结构、name/description 与相对引用",
+    "integration_status": "规范采用；安装副本自包含。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S02",
+    "name": "Codex Skills 文档",
+    "url": "https://learn.chatgpt.com/docs/build-skills",
+    "checked_at": "2026-09-18",
+    "use": "项目和用户级 .agents/skills 安装位置",
+    "integration_status": "安装器采用显式路径；未操控用户客户端。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S03",
+    "name": "Promptfoo Python provider",
+    "url": "https://www.promptfoo.dev/docs/providers/python/",
+    "checked_at": "2026-09-18",
+    "use": "call_api(prompt, options, context) 接口",
+    "integration_status": "本包自行编写 Python 适配，直接函数已测。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S04",
+    "name": "Promptfoo Python assertions",
+    "url": "https://www.promptfoo.dev/docs/configuration/expected-outputs/python/",
+    "checked_at": "2026-09-18",
+    "use": "get_assert 与 pass/score/reason",
+    "integration_status": "机械评分适配已写；语义评分仍人工。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S05",
+    "name": "PM4Py",
+    "url": "https://github.com/process-intelligence-solutions/pm4py",
+    "checked_at": "2026-09-18",
+    "use": "按 case/activity/timestamp 观察流程、分支和返工",
+    "integration_status": "只借方法，未导入库。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S06",
+    "name": "PM4Py LICENSE",
+    "url": "https://raw.githubusercontent.com/process-intelligence-solutions/pm4py/release/LICENSE",
+    "checked_at": "2026-09-18",
+    "use": "AGPL-3.0",
+    "integration_status": "记录许可约束；没有直接集成。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S07",
+    "name": "OpenAdapt",
+    "url": "https://github.com/OpenAdaptAI/OpenAdapt",
+    "checked_at": "2026-09-18",
+    "use": "从示范中提取可重用操作",
+    "integration_status": "只借方法，未录屏/控制电脑。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S08",
+    "name": "openadapt-flow",
+    "url": "https://github.com/OpenAdaptAI/openadapt-flow",
+    "checked_at": "2026-09-18",
+    "use": "工作流、效果核验与示范边界",
+    "integration_status": "只借架构；不声称示范一次就可靠自动化。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S09",
+    "name": "openadapt-flow LICENSE",
+    "url": "https://raw.githubusercontent.com/OpenAdaptAI/openadapt-flow/main/LICENSE",
+    "checked_at": "2026-09-18",
+    "use": "作者编写包代码的 MIT 条款，部分第三方边界另列",
+    "integration_status": "复用前必须按具体目录审查，不能概括整个仓库。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S10",
+    "name": "Langfuse LICENSE",
+    "url": "https://raw.githubusercontent.com/langfuse/langfuse/main/LICENSE",
+    "checked_at": "2026-09-18",
+    "use": "核心 MIT，ee 等目录许可例外",
+    "integration_status": "只借运行/事件/评分关联，不安装服务。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S11",
+    "name": "Reflexion",
+    "url": "https://github.com/noahshinn/reflexion",
+    "checked_at": "2026-09-18",
+    "use": "用反馈形成下一次可用的文字记忆",
+    "integration_status": "借候选规则设计，未把研究结果外推为人类成效。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S12",
+    "name": "Reflexion 论文",
+    "url": "https://arxiv.org/abs/2303.11366",
+    "checked_at": "2026-09-18",
+    "use": "Language Agents with Verbal Reinforcement Learning",
+    "integration_status": "方法来源。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S13",
+    "name": "Promptfoo LICENSE",
+    "url": "https://github.com/promptfoo/promptfoo/blob/main/LICENSE",
+    "checked_at": "2026-09-18",
+    "use": "MIT",
+    "integration_status": "可选工具，未复制源码。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S14",
+    "name": "Promptfoo package.json",
+    "url": "https://raw.githubusercontent.com/promptfoo/promptfoo/main/package.json",
+    "checked_at": "2026-09-18",
+    "use": "核对时源码版本 0.123.0、Node >=22.22.0",
+    "integration_status": "npm 查询超时；CLI 未执行。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S15",
+    "name": "DSPy",
+    "url": "https://github.com/stanfordnlp/dspy",
+    "checked_at": "2026-09-18",
+    "use": "LM 程序与优化器，MIT",
+    "integration_status": "仅下一阶段接口设计。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S16",
+    "name": "GEPA 文档",
+    "url": "https://dspy.ai/api/optimizers/GEPA/overview/",
+    "checked_at": "2026-09-18",
+    "use": "基于评价与文字反馈生成候选",
+    "integration_status": "未调用优化器。",
+    "upstream_commit_pinned": false
+  },
+  {
+    "id": "S17",
+    "name": "Chat Completions 请求参考",
+    "url": "https://platform.openai.com/docs/api-reference/chat/create",
+    "checked_at": "2026-09-18",
+    "use": "messages 与 max_completion_tokens 请求格式",
+    "integration_status": "兼容 adapter；未调用任何收费模型。",
+    "upstream_commit_pinned": false
+  }
+]

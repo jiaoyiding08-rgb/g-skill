@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1.0",
+  "run_id": "run_import_example",
+  "episode_id": "episode_import_example",
+  "skill": "g-ground",
+  "intent": {
+    "intent_id": "intent_import_example",
+    "statement": "创建一份本地说明草稿",
+    "scope": "本地演示",
+    "deadline": null,
+    "source": "user",
+    "created_at": "2026-09-18T00:00:00+08:00"
+  },
+  "completion_contract": {
+    "contract_id": "contract_example",
+    "version": 1,
+    "scope": "仅验证本地草稿文件存在，未发布或收款",
+    "criteria": [
+      {
+        "criterion_id": "file_created",
+        "statement": "指定目录存在本轮登记的草稿文件",
+        "accepted_types": [
+          "file"
+        ],
+        "minimum_level": "E1",
+        "verification": "local_artifact_sha256",
+        "max_age_seconds": 86400
+      }
+    ],
+    "created_at": "2026-09-18T00:00:00+08:00"
+  },
+  "next_action": {
+    "action_id": "act_import_example",
+    "action": "创建一份本地服务说明草稿",
+    "actor": "user",
+    "timebox_min": 25,
+    "blocked_by": [],
+    "stop_when": "草稿中列明首日任务、服务范围和仍待核实的事项。",
+    "side_effect": "local_write",
+    "requires_confirmation": true
+  },
+  "simulated": true,
+  "idempotency_key": "import_example_v1"
+}

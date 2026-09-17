@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "skill": "g-review",
+  "run_id": "run_example_review",
+  "decision": "RETROSPECTIVE_ONLY",
+  "summary": "这次没有可核对的事前快照，只能整理已知经过，暂不判断预测准确率。",
+  "next_action": null,
+  "completion_contract": null,
+  "evidence_request": [],
+  "questions": [],
+  "handoff": null,
+  "data_writes": [],
+  "writes_applied": false,
+  "capability_mode": "prompt_only",
+  "details": {
+    "snapshot_available": false,
+    "comparison": "已提供的是事后回忆；不能补造成行动前判断。",
+    "alternative_explanations": [
+      "用户理解偏差也可能来自访谈提问方式。"
+    ],
+    "rule": null
+  },
+  "uncertainties": []
+}

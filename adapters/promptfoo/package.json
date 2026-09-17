@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "description": "Optional Promptfoo CLI; source version checked, registry install not verified here",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "devDependencies": {
+    "promptfoo": "0.123.0"
+  }
+}

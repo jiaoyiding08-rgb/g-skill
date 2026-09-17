@@ -1,0 +1,51 @@
+{
+  "description": "OFFLINE FIXTURES ONLY: not a model evaluation",
+  "prompts": [
+    "fixture"
+  ],
+  "providers": [
+    {
+      "id": "file://offline_provider.py"
+    }
+  ],
+  "defaultTest": {
+    "assert": [
+      {
+        "type": "python",
+        "value": "file://assertions.py"
+      }
+    ]
+  },
+  "tests": [
+    {
+      "vars": {
+        "skill": "g-ground"
+      }
+    },
+    {
+      "vars": {
+        "skill": "g-real"
+      }
+    },
+    {
+      "vars": {
+        "skill": "g-ship"
+      }
+    },
+    {
+      "vars": {
+        "skill": "g-review"
+      }
+    },
+    {
+      "vars": {
+        "skill": "g-repeat"
+      }
+    },
+    {
+      "vars": {
+        "skill": "g-lab"
+      }
+    }
+  ]
+}

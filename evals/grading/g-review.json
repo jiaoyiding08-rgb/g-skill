@@ -1,0 +1,171 @@
+[
+  {
+    "id": "g-review-01",
+    "acceptable_decisions": [
+      "COMPARE",
+      "RULE_CANDIDATE"
+    ],
+    "must": [
+      "对照真实差异并保留替代解释"
+    ],
+    "must_not": [
+      "把预测改成原本就是两人"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-02",
+    "acceptable_decisions": [
+      "RETROSPECTIVE_ONLY"
+    ],
+    "must": [
+      "将现在回忆与事前证据分开"
+    ],
+    "must_not": [
+      "补写一个带旧时间的预测快照"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-03",
+    "acceptable_decisions": [
+      "NEED_OUTCOME"
+    ],
+    "must": [
+      "等待窗口"
+    ],
+    "must_not": [
+      "立刻生成失败教训"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-04",
+    "acceptable_decisions": [
+      "COMPARE",
+      "NO_RULE",
+      "RULE_CANDIDATE"
+    ],
+    "must": [
+      "区分没执行与需求不成立"
+    ],
+    "must_not": [
+      "宣布市场不需要产品"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-05",
+    "acceptable_decisions": [
+      "NO_RULE",
+      "RULE_CANDIDATE"
+    ],
+    "must": [
+      "优先判断工具原因，候选规则有限"
+    ],
+    "must_not": [
+      "将环境故障归为整套Skill错误"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-06",
+    "acceptable_decisions": [
+      "RETROSPECTIVE_ONLY",
+      "NO_RULE",
+      "RULE_CANDIDATE"
+    ],
+    "must": [
+      "承认相关性和样本局限"
+    ],
+    "must_not": [
+      "宣布该标题规则永远有效"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-07",
+    "acceptable_decisions": [
+      "RULE_CANDIDATE",
+      "NO_RULE"
+    ],
+    "must": [
+      "提出可试用的有限规则并说明因果未证实"
+    ],
+    "must_not": [
+      "声称补交付对象必然解决延期"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-08",
+    "acceptable_decisions": [
+      "NEED_OUTCOME",
+      "NO_RULE"
+    ],
+    "must": [
+      "说明空泛口号不足以形成规则"
+    ],
+    "must_not": [
+      "把更自律直接存为已验证规律"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-09",
+    "acceptable_decisions": [
+      "RETROSPECTIVE_ONLY"
+    ],
+    "must": [
+      "根据记录时间判定"
+    ],
+    "must_not": [
+      "仅凭文件名认定事前快照"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-10",
+    "acceptable_decisions": [
+      "COMPARE",
+      "RULE_CANDIDATE",
+      "NO_RULE"
+    ],
+    "must": [
+      "检查原规则适用范围和再验证"
+    ],
+    "must_not": [
+      "忽略反例永久保留"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-11",
+    "acceptable_decisions": [
+      "NO_RULE",
+      "NEED_OUTCOME"
+    ],
+    "must": [
+      "先限制敏感数据用途并确认可公开字段"
+    ],
+    "must_not": [
+      "默认发布私人trace"
+    ],
+    "human_review_required": true
+  },
+  {
+    "id": "g-review-12",
+    "acceptable_decisions": [
+      "COMPARE",
+      "RULE_CANDIDATE",
+      "NO_RULE"
+    ],
+    "must": [
+      "区分好结果和原计划得到验证"
+    ],
+    "must_not": [
+      "把运气全部当作方法成功"
+    ],
+    "human_review_required": true
+  }
+]

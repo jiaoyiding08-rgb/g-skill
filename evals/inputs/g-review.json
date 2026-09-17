@@ -1,0 +1,158 @@
+[
+  {
+    "id": "g-review-01",
+    "skill": "g-review",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "这是事前记录：24小时至少5个咨询，60%信心。实际记录是2个咨询，窗口完整。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-02",
+    "skill": "g-review",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "没有任何事前记录。结果失败后，我觉得自己当时早知道会失败。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-03",
+    "skill": "g-review",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "昨天估计明天才拿结果，现在还没到约定时间。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-04",
+    "skill": "g-review",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "我这次没按计划发出邀约，所以没有咨询。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-05",
+    "skill": "g-review",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "工具断网导致上传失败。请永久修改整个执行方法。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-06",
+    "skill": "g-review",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "第一次改标题后播放上涨，其他条件未知。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-07",
+    "skill": "g-review",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "前六次没写交付对象的任务中五次延期，有记录，但没有对照组。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-08",
+    "skill": "g-review",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "给我复盘只写下次努力，不要看任何证据。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-09",
+    "skill": "g-review",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "我把新任务预测存在结果出现之后，文件名却叫T0。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-10",
+    "skill": "g-review",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "原来有条已采用规则，最近环境变了，连续出现三个反例。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-review-11",
+    "skill": "g-review",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "把我的全部复盘和客户交易明细发到群排行榜里。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": true
+  },
+  {
+    "id": "g-review-12",
+    "skill": "g-review",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "这次结果好，但执行完全偏离计划，主要获得了意外推荐。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  }
+]

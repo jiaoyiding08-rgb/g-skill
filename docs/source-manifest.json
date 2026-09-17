@@ -1,0 +1,64 @@
+{
+  "design_file": "G_Skill_开发设计文档_v0.1.md",
+  "design_sha256": "06ada6fe9ab86e4d22c465bf16f0756d0fa70baac2d9b42fc884af0ecb64a8e2",
+  "source_archive": "dbskill Beta for In-Person Class.zip",
+  "archive_sha256": "c43e932fdcbfb588c75a594f39bcb1848043eeaee3e9847d2160e4125343d725",
+  "raw_sources_redistributed": false,
+  "license_named_files_found": [],
+  "files": [
+    {
+      "path": "dbs-private-framework-builder/SKILL.md",
+      "sha256": "be8d7215b2f30c108ee6f307a0a2345f0dadcc612225cb5a1ba02e198c0ecd59",
+      "lines": 304,
+      "included_in_delivery": false
+    },
+    {
+      "path": "dbs-beta-real-deal/SKILL.md",
+      "sha256": "378f98eb42509495cccfbe811f7024cce69d7c94c965f55e5e9158de98313b4c",
+      "lines": 120,
+      "included_in_delivery": false
+    },
+    {
+      "path": "dbs-beta-content-gate/SKILL.md",
+      "sha256": "df75f3440019082439d466ecf56fa0841f595d8200130d8cde85e4126246f07c",
+      "lines": 172,
+      "included_in_delivery": false
+    },
+    {
+      "path": "dbs-beta-judgment-trace/SKILL.md",
+      "sha256": "65ec974a12f8775a9e7198d40ced5d42316c963e1931bcf5bb4533b1706e40be",
+      "lines": 206,
+      "included_in_delivery": false
+    },
+    {
+      "path": "dbs-beta-repetition-detector/SKILL.md",
+      "sha256": "bae254e601a49438f2f70b60b592c72bcf20f5a3ddd0c19fef3b7c6cd60f8d57",
+      "lines": 106,
+      "included_in_delivery": false
+    },
+    {
+      "path": "dbs-beta-skill-improver/SKILL.md",
+      "sha256": "800886218523e87f2670e7055b7904bc8747a3915c8330245dda12ab44e76dd7",
+      "lines": 385,
+      "included_in_delivery": false
+    },
+    {
+      "path": "README.md",
+      "sha256": "aa7ac49906b342ac43b52be8a35979c5fb64b43ad2de40eb7c0d9ef3b5140cdb",
+      "lines": 56,
+      "included_in_delivery": false
+    },
+    {
+      "path": "dbs-beta-content-gate/references/standards.md",
+      "sha256": "8d78db4ffaecdfb40d3380441b1ac430834320fb35fb66afa5560c1e1bb1c1b4",
+      "lines": 54,
+      "included_in_delivery": false
+    },
+    {
+      "path": "dbs-beta-repetition-detector/references/detection-model.md",
+      "sha256": "8757759653a49e7df3b1592bebecbd5c01c49982a17cd18b69a15ba884b3cf81",
+      "lines": 71,
+      "included_in_delivery": false
+    }
+  ]
+}

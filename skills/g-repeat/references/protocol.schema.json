@@ -1,0 +1,1714 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gskill.local/schemas/0.1.0/protocol.json",
+  "title": "G Skill protocol 0.1.0",
+  "$ref": "#/$defs/Envelope",
+  "$defs": {
+    "TaskIntent": {
+      "type": "object",
+      "properties": {
+        "intent_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deadline": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "enum": [
+            "user",
+            "user_confirmed"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "intent_id",
+        "statement",
+        "scope",
+        "deadline",
+        "source",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "Criterion": {
+      "type": "object",
+      "properties": {
+        "criterion_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accepted_types": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "file",
+              "screenshot",
+              "url",
+              "system_record",
+              "third_party_record"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "minimum_level": {
+          "enum": [
+            "E1",
+            "E2",
+            "E3"
+          ]
+        },
+        "verification": {
+          "enum": [
+            "local_artifact_sha256",
+            "manual_review",
+            "external_state",
+            "third_party_confirmation"
+          ]
+        },
+        "max_age_seconds": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "criterion_id",
+        "statement",
+        "accepted_types",
+        "minimum_level",
+        "verification",
+        "max_age_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "CompletionContract": {
+      "type": "object",
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Criterion"
+          },
+          "minItems": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "contract_id",
+        "version",
+        "scope",
+        "criteria",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "ActionStep": {
+      "type": "object",
+      "properties": {
+        "action_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actor": {
+          "enum": [
+            "user",
+            "agent",
+            "joint"
+          ]
+        },
+        "timebox_min": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1440
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "blocked_by": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "stop_when": {
+          "type": "string",
+          "minLength": 1
+        },
+        "side_effect": {
+          "enum": [
+            "none",
+            "local_write",
+            "external_write",
+            "payment",
+            "destructive"
+          ]
+        },
+        "requires_confirmation": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "action_id",
+        "action",
+        "actor",
+        "timebox_min",
+        "blocked_by",
+        "stop_when",
+        "side_effect",
+        "requires_confirmation"
+      ],
+      "additionalProperties": false
+    },
+    "Evidence": {
+      "type": "object",
+      "properties": {
+        "evidence_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "contract_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "contract_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "criterion_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "type": {
+          "enum": [
+            "self_report",
+            "file",
+            "screenshot",
+            "url",
+            "system_record",
+            "third_party_record"
+          ]
+        },
+        "level": {
+          "enum": [
+            "E0",
+            "E1",
+            "E2",
+            "E3"
+          ]
+        },
+        "uri": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "captured_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "enum": [
+            "user",
+            "local_verifier",
+            "authorized_connector",
+            "third_party"
+          ]
+        },
+        "content_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scope_root": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "checked_by": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revoked_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "simulated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "run_id",
+        "contract_id",
+        "contract_version",
+        "criterion_id",
+        "type",
+        "level",
+        "uri",
+        "captured_at",
+        "source",
+        "content_sha256",
+        "scope_root",
+        "checked_by",
+        "revoked_at",
+        "simulated"
+      ],
+      "additionalProperties": false
+    },
+    "Outcome": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "status": {
+          "enum": [
+            "VERIFIED",
+            "FAILED",
+            "WAITING_EVIDENCE"
+          ]
+        },
+        "actual": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "criterion_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "criterion_id",
+              "passed",
+              "reason",
+              "evidence_id"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "verified_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "simulated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "run_id",
+        "status",
+        "actual",
+        "evidence_ids",
+        "checks",
+        "verified_at",
+        "simulated"
+      ],
+      "additionalProperties": false
+    },
+    "JudgmentSnapshot": {
+      "type": "object",
+      "properties": {
+        "snapshot_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timing": {
+          "enum": [
+            "prospective"
+          ]
+        },
+        "prediction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "failure_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "observation_window": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "run_id",
+        "recorded_at",
+        "timing",
+        "prediction",
+        "confidence",
+        "reasons",
+        "failure_conditions",
+        "observation_window"
+      ],
+      "additionalProperties": false
+    },
+    "LearnedRule": {
+      "type": "object",
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "hypothesis",
+            "trial",
+            "adopted",
+            "retired"
+          ]
+        },
+        "source_run_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "applies_when": {
+          "type": "string",
+          "minLength": 1
+        },
+        "does_not_apply_when": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recheck_condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "counterexamples": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "rule_id",
+        "rule",
+        "status",
+        "source_run_ids",
+        "confidence",
+        "applies_when",
+        "does_not_apply_when",
+        "recheck_condition",
+        "valid_until",
+        "counterexamples"
+      ],
+      "additionalProperties": false
+    },
+    "RepeatCluster": {
+      "type": "object",
+      "properties": {
+        "cluster_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "task_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "episode_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "run_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "maturity": {
+          "enum": [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4"
+          ]
+        },
+        "stable_steps": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "near_misses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "next_validation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "automation_authorized": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cluster_id",
+        "task_statement",
+        "episode_ids",
+        "run_ids",
+        "maturity",
+        "stable_steps",
+        "variants",
+        "near_misses",
+        "next_validation",
+        "automation_authorized"
+      ],
+      "additionalProperties": false
+    },
+    "ActionTrace": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "activity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actor": {
+          "enum": [
+            "user",
+            "agent",
+            "runtime"
+          ]
+        },
+        "event_type": {
+          "enum": [
+            "run_created",
+            "state_changed",
+            "snapshot_saved",
+            "evidence_recorded",
+            "verification_finished",
+            "note"
+          ]
+        },
+        "payload": {
+          "type": "object"
+        },
+        "simulated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "event_id",
+        "run_id",
+        "timestamp",
+        "activity",
+        "actor",
+        "event_type",
+        "payload",
+        "simulated"
+      ],
+      "additionalProperties": false
+    },
+    "Handoff": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "enum": [
+            "g-ground",
+            "g-real",
+            "g-ship",
+            "g-review",
+            "g-repeat",
+            "g-lab"
+          ]
+        },
+        "parent_run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "known_facts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "unresolved": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "allowed_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requires_confirmation": {
+          "type": "boolean"
+        },
+        "depth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        }
+      },
+      "required": [
+        "target",
+        "parent_run_id",
+        "reason",
+        "known_facts",
+        "unresolved",
+        "evidence_ids",
+        "allowed_scope",
+        "requires_confirmation",
+        "depth"
+      ],
+      "additionalProperties": false
+    },
+    "DataWrite": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "enum": [
+            "intent",
+            "contract",
+            "step",
+            "evidence",
+            "outcome",
+            "snapshot",
+            "rule",
+            "cluster",
+            "candidate"
+          ]
+        },
+        "operation": {
+          "enum": [
+            "propose"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "target",
+        "operation",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "Envelope": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "enum": [
+            "0.1.0"
+          ]
+        },
+        "skill": {
+          "enum": [
+            "g-ground",
+            "g-real",
+            "g-ship",
+            "g-review",
+            "g-repeat",
+            "g-lab"
+          ]
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "decision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "next_action": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ActionStep"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "completion_contract": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CompletionContract"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_request": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "handoff": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Handoff"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "data_writes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DataWrite"
+          },
+          "minItems": 0
+        },
+        "writes_applied": {
+          "enum": [
+            false
+          ]
+        },
+        "capability_mode": {
+          "enum": [
+            "prompt_only",
+            "local_runtime"
+          ]
+        },
+        "details": {
+          "type": "object"
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "schema_version",
+        "skill",
+        "run_id",
+        "decision",
+        "summary",
+        "next_action",
+        "completion_contract",
+        "evidence_request",
+        "questions",
+        "handoff",
+        "data_writes",
+        "writes_applied",
+        "capability_mode",
+        "details",
+        "uncertainties"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "skill": {
+                "const": "g-ground"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "decision": {
+                "enum": [
+                  "ACT_NOW",
+                  "GET_ONE_FACT",
+                  "PARK"
+                ]
+              },
+              "details": {
+                "$ref": "#/$defs/GroundDetails"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "skill": {
+                "const": "g-real"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "decision": {
+                "enum": [
+                  "DESIGN_TEST",
+                  "GET_ONE_FACT",
+                  "SUPPORTED",
+                  "REFUTED",
+                  "INCONCLUSIVE",
+                  "PARK"
+                ]
+              },
+              "details": {
+                "$ref": "#/$defs/RealDetails"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "skill": {
+                "const": "g-ship"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "decision": {
+                "enum": [
+                  "SHIP_NOW",
+                  "ONE_FIX_THEN_SHIP",
+                  "PARK",
+                  "KILL"
+                ]
+              },
+              "details": {
+                "$ref": "#/$defs/ShipDetails"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "skill": {
+                "const": "g-review"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "decision": {
+                "enum": [
+                  "COMPARE",
+                  "NEED_OUTCOME",
+                  "RETROSPECTIVE_ONLY",
+                  "RULE_CANDIDATE",
+                  "NO_RULE"
+                ]
+              },
+              "details": {
+                "$ref": "#/$defs/ReviewDetails"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "skill": {
+                "const": "g-repeat"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "decision": {
+                "enum": [
+                  "OBSERVE",
+                  "PATTERN",
+                  "TEMPLATE_CANDIDATE",
+                  "SKILL_CANDIDATE",
+                  "AUTOMATION_CANDIDATE",
+                  "KEEP_MANUAL"
+                ]
+              },
+              "details": {
+                "$ref": "#/$defs/RepeatDetails"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "skill": {
+                "const": "g-lab"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "decision": {
+                "enum": [
+                  "PLAN_CHANGE",
+                  "NEED_EVIDENCE",
+                  "CANDIDATE_READY",
+                  "CONTINUE_EXPERIMENT",
+                  "CANARY_RECOMMENDED",
+                  "STABLE_RECOMMENDED",
+                  "ROLLBACK_RECOMMENDED"
+                ]
+              },
+              "details": {
+                "$ref": "#/$defs/LabDetails"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "RunPlan": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "enum": [
+            "0.1.0"
+          ]
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "episode_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "skill": {
+          "enum": [
+            "g-ground",
+            "g-real",
+            "g-ship",
+            "g-review",
+            "g-repeat",
+            "g-lab"
+          ]
+        },
+        "intent": {
+          "$ref": "#/$defs/TaskIntent"
+        },
+        "completion_contract": {
+          "$ref": "#/$defs/CompletionContract"
+        },
+        "next_action": {
+          "$ref": "#/$defs/ActionStep"
+        },
+        "simulated": {
+          "type": "boolean"
+        },
+        "idempotency_key": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "episode_id",
+        "skill",
+        "intent",
+        "completion_contract",
+        "next_action",
+        "simulated",
+        "idempotency_key"
+      ],
+      "additionalProperties": false
+    },
+    "RouteContext": {
+      "type": "object",
+      "properties": {
+        "requested_skill": {
+          "anyOf": [
+            {
+              "enum": [
+                "g-ground",
+                "g-real",
+                "g-ship",
+                "g-review",
+                "g-repeat",
+                "g-lab"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "task_type": {
+          "enum": [
+            "action",
+            "validation",
+            "delivery",
+            "review",
+            "repetition",
+            "skill_maintenance",
+            "other"
+          ]
+        },
+        "missing_critical_fact": {
+          "type": "boolean"
+        },
+        "hard_risk": {
+          "type": "boolean"
+        },
+        "artifact_ready": {
+          "type": "boolean"
+        },
+        "has_outcome": {
+          "type": "boolean"
+        },
+        "has_snapshot": {
+          "type": "boolean"
+        },
+        "independent_episodes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "authorized_scope": {
+          "type": "boolean"
+        },
+        "maintainer_authorized": {
+          "type": "boolean"
+        },
+        "budget_exhausted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "requested_skill",
+        "task_type",
+        "missing_critical_fact",
+        "hard_risk",
+        "artifact_ready",
+        "has_outcome",
+        "has_snapshot",
+        "independent_episodes",
+        "authorized_scope",
+        "maintainer_authorized",
+        "budget_exhausted"
+      ],
+      "additionalProperties": false
+    },
+    "EvalCase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "skill": {
+          "enum": [
+            "g-ground",
+            "g-real",
+            "g-ship",
+            "g-review",
+            "g-repeat",
+            "g-lab"
+          ]
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "holdout_candidate"
+          ]
+        },
+        "provenance": {
+          "enum": [
+            "synthetic",
+            "conversation_scenario"
+          ]
+        },
+        "input": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context": {
+          "type": "object"
+        },
+        "critical": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "skill",
+        "split",
+        "provenance",
+        "input",
+        "context",
+        "critical"
+      ],
+      "additionalProperties": false
+    },
+    "EvalRubric": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+        },
+        "acceptable_decisions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "must": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "must_not": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "human_review_required": {
+          "enum": [
+            true
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "acceptable_decisions",
+        "must",
+        "must_not",
+        "human_review_required"
+      ],
+      "additionalProperties": false
+    },
+    "GroundDetails": {
+      "type": "object",
+      "properties": {
+        "blocker": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "why_this_step": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deferred_items": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "blocker",
+        "why_this_step",
+        "deferred_items"
+      ],
+      "additionalProperties": false
+    },
+    "RealDetails": {
+      "type": "object",
+      "properties": {
+        "hypothesis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "test_plan": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "sample_frame": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "time_budget_min": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "max_spend": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "observation_window": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "passing_rule": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "failing_rule": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "stop_rule": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "sample_frame",
+                "time_budget_min",
+                "max_spend",
+                "observation_window",
+                "passing_rule",
+                "failing_rule",
+                "stop_rule"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "simulated": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "statement",
+              "source",
+              "simulated"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "hypothesis_status": {
+          "enum": [
+            "unknown",
+            "test_planned",
+            "supported",
+            "refuted",
+            "inconclusive"
+          ]
+        },
+        "denominator": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "hypothesis",
+        "alternatives",
+        "test_plan",
+        "observations",
+        "hypothesis_status",
+        "denominator"
+      ],
+      "additionalProperties": false
+    },
+    "ShipDetails": {
+      "type": "object",
+      "properties": {
+        "artifact_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "artifact_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hard_gate": {
+          "enum": [
+            "pass",
+            "fail",
+            "unknown"
+          ]
+        },
+        "core_gate": {
+          "enum": [
+            "pass",
+            "fail",
+            "unknown"
+          ]
+        },
+        "polish_only": {
+          "type": "boolean"
+        },
+        "repair": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "delivery_executed": {
+          "enum": [
+            false
+          ]
+        }
+      },
+      "required": [
+        "artifact_ref",
+        "artifact_sha256",
+        "hard_gate",
+        "core_gate",
+        "polish_only",
+        "repair",
+        "delivery_executed"
+      ],
+      "additionalProperties": false
+    },
+    "ReviewDetails": {
+      "type": "object",
+      "properties": {
+        "snapshot_available": {
+          "type": "boolean"
+        },
+        "comparison": {
+          "type": "string",
+          "minLength": 1
+        },
+        "alternative_explanations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "rule": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LearnedRule"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "snapshot_available",
+        "comparison",
+        "alternative_explanations",
+        "rule"
+      ],
+      "additionalProperties": false
+    },
+    "RepeatDetails": {
+      "type": "object",
+      "properties": {
+        "cluster": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RepeatCluster"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "independent_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "recommendation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance_note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "cluster",
+        "independent_count",
+        "recommendation",
+        "provenance_note"
+      ],
+      "additionalProperties": false
+    },
+    "LabDetails": {
+      "type": "object",
+      "properties": {
+        "stage": {
+          "enum": [
+            "diagnosis",
+            "candidate",
+            "evaluation",
+            "release_review"
+          ]
+        },
+        "write_authorized": {
+          "type": "boolean"
+        },
+        "baseline_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "candidate_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_of_improvement": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "live_evals_run": {
+          "type": "boolean"
+        },
+        "release_executed": {
+          "enum": [
+            false
+          ]
+        }
+      },
+      "required": [
+        "stage",
+        "write_authorized",
+        "baseline_ref",
+        "candidate_ref",
+        "evidence_of_improvement",
+        "live_evals_run",
+        "release_executed"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

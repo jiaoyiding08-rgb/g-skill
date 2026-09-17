@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "skill": "g-lab",
+  "run_id": "run_example_lab",
+  "decision": "PLAN_CHANGE",
+  "summary": "先提交一个小范围修改方案，不覆盖正式 Skill。",
+  "next_action": null,
+  "completion_contract": null,
+  "evidence_request": [],
+  "questions": [],
+  "handoff": null,
+  "data_writes": [],
+  "writes_applied": false,
+  "capability_mode": "prompt_only",
+  "details": {
+    "stage": "diagnosis",
+    "write_authorized": false,
+    "baseline_ref": null,
+    "candidate_ref": null,
+    "evidence_of_improvement": null,
+    "live_evals_run": false,
+    "release_executed": false
+  },
+  "uncertainties": [
+    "还没有真实模型基线、独立留出集和用户行为结果。"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "skill": "g-real",
+  "run_id": "run_example_real",
+  "decision": "DESIGN_TEST",
+  "summary": "先测试目标用户能否理解第一天会做什么，暂不把口头认可当作付费意愿。",
+  "next_action": null,
+  "completion_contract": null,
+  "evidence_request": [],
+  "questions": [],
+  "handoff": null,
+  "data_writes": [],
+  "writes_applied": false,
+  "capability_mode": "prompt_only",
+  "details": {
+    "hypothesis": "目标用户能正确说明加入后的首日活动。",
+    "alternatives": [
+      "只对口号感兴趣",
+      "对服务内容理解有偏差"
+    ],
+    "test_plan": {
+      "sample_frame": "自愿参与的五位目标用户，不含重复访谈",
+      "time_budget_min": 40,
+      "max_spend": 0,
+      "observation_window": "五次短访谈完成后",
+      "passing_rule": "至少三人能准确复述首日活动，仅用于本轮修改决策",
+      "failing_rule": "多数人误解服务内容",
+      "stop_rule": "五次完成、40 分钟耗尽或参与者撤回同意时停止"
+    },
+    "observations": [],
+    "hypothesis_status": "test_planned",
+    "denominator": null
+  },
+  "uncertainties": []
+}

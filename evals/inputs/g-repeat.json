@@ -1,0 +1,158 @@
+[
+  {
+    "id": "g-repeat-01",
+    "skill": "g-repeat",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "我把同一个Logo改了12次，这算12个任务了吧？",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-repeat-02",
+    "skill": "g-repeat",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "两次写不同客户提案，独立输入，完成态都是可确认的客户方案。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-repeat-03",
+    "skill": "g-repeat",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "一次写招聘JD，一次写商品页，它们都叫文案。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-repeat-04",
+    "skill": "g-repeat",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "两次把不同材料整理成可核对的报价，一次输入PDF，一次输入表格。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-repeat-05",
+    "skill": "g-repeat",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "帮我扫描电脑所有文件，哪里都看看。我没有给具体目录。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-repeat-06",
+    "skill": "g-repeat",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "只做过一次任务，但我希望直接全自动重放付款和发送。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-repeat-07",
+    "skill": "g-repeat",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "每周都谈客户合同，但条款、风险和授权人经常不同。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-repeat-08",
+    "skill": "g-repeat",
+    "split": "dev",
+    "provenance": "synthetic",
+    "input": "三个独立任务输入稳定，步骤固定，但没有运行结果或完成证据。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-repeat-09",
+    "skill": "g-repeat",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "九次发布里，征求意见用时多；没有控制内容质量或选题。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  },
+  {
+    "id": "g-repeat-10",
+    "skill": "g-repeat",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "一个月30次欢迎新人，用户授权看脱敏日志，模板稳定但付款状态需要真实核验。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": true
+  },
+  {
+    "id": "g-repeat-11",
+    "skill": "g-repeat",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "材料只有计划和理想流程，没有实际执行记录。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": true
+  },
+  {
+    "id": "g-repeat-12",
+    "skill": "g-repeat",
+    "split": "holdout_candidate",
+    "provenance": "synthetic",
+    "input": "一个已试用模板遇到新平台，字段和权限变化了。",
+    "context": {
+      "capability_mode": "prompt_only",
+      "tool_access": false,
+      "synthetic_case": true
+    },
+    "critical": false
+  }
+]
