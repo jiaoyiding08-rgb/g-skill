@@ -1,10 +1,40 @@
-# G Skill · Gravity Execution System
+# ⚡ g-skill
+
+> **脑内已经上市，现实还没新建文件。**<br>
+> *Compiler for reality: Evidence > Vibes.*
+
+计划写完了。模板搭好了。工具买齐了。<br>
+然后呢，东西在哪？
+
+G = Gravity。一个现实编译器，负责追问三件事：
+
+**下一步做什么？怎样才算完成？证据在哪？**
+
+### 假动作质检
+
+- 花三小时搭 Notion，任务本身动了五分钟。
+- 收藏了八百篇教程，第一版还没交。
+- 第十二次优化标题，发布按钮一次没点。
+
+这些动作都发生了。交付有没有发生，另算。
+
+### 六个模块，专查“然后呢”
+
+- **Ground**：先把下一步说成人能动手做的事。
+- **Real**：别急着宣布需求成立，先让现实回一句。
+- **Ship**：这次修改真有必要，还是又在拖？
+- **Review**：把事前判断拿出来，跟结果对账。
+- **Repeat**：同一个坑，别每次都原创新跳法。
+- **Lab**：方法也得考试。改得更狠，不等于改得更好。
+
+当前提供六个 Skill 和本地记录、核验底座。<br>
+自动监控、自动发布、自主进化尚未实现。
+
+**先交一版。让现实参与讨论。**
+
+---
 
 **0.1.0-alpha · 本地原型 · 六个 Skill + 可运行记录底座**
-
-G = Gravity。把想法变成可检查的行动，让已经做过的事情留下可复用的方法。
-
-A Human Execution OS for pulling good intentions out of the clouds and into the real world—with evidence, review, repetition, and evolving Skills.
 
 先读 [开始使用](START_HERE.md)。交给开发代理时读 [AGENTS.md](AGENTS.md)。公开版本采用 [Apache-2.0](LICENSE)；运行报告不随源码发布。
 
